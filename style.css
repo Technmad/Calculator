@@ -14,7 +14,7 @@ body {
 
 .input {
   padding: 10px 16px;
-  font-size: 15px;
+  font-size: 20px;
   border: 2px solid black;
   border-radius: 10px;
 }
@@ -27,6 +27,8 @@ body {
 }
 
 button {
+  font-size: 20px;
+  width: 60px;
   padding: 20px;
   margin: 0px 3px;
   border: 2px solid black;
