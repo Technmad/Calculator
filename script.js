@@ -8,8 +8,8 @@ const equalsBtn = document.getElementById("equal");
 const clearBtn = document.getElementById("all-clear");
 const deleteBtn = document.getElementById("delete");
 const input = document.getElementById("input");
-const lowerDisplay = document.querySelector(".lower-display").innerHTML;
-const upperDisplay = document.querySelector(".upper-display").innerHTML;
+let lowerDisplay = document.querySelector(".lower-display").innerHTML;
+let upperDisplay = document.querySelector(".upper-display").innerHTML;
 
 equalsBtn.addEventListener("click", compute());
 clearBtn.addEventListener("click", clear());
