@@ -29,7 +29,7 @@ body {
 button {
   font-size: 20px;
   width: 60px;
-  padding: 20px;
+  padding: 20px 10px;
   margin: 0px 3px;
   border: 2px solid black;
   border-radius: 10px;
@@ -38,4 +38,8 @@ button {
 
 .row {
   margin: 8px 0;
+}
+
+#equal {
+  width: 133px;
 }
