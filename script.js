@@ -4,28 +4,29 @@ let operator;
 
 const numberBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
-const equalsBtn = document.getElementById("equal");
+const equalBtn = document.getElementById("equal");
 const clearBtn = document.getElementById("all-clear");
 const deleteBtn = document.getElementById("delete");
 const input = document.getElementById("input");
-let lowerDisplay = document.querySelector(".lower-display").innerHTML;
-let upperDisplay = document.querySelector(".upper-display").innerHTML;
+let lowerDisplay = document.querySelector(".lower-display");
+let upperDisplay = document.querySelector(".upper-display");
 
-equalsBtn.addEventListener("click", compute());
-clearBtn.addEventListener("click", clear());
+equalBtn.addEventListener("click", compute);
+clearBtn.addEventListener("click", clear);
 //deleteBtn.addEventListener("click", deleteN());
 
 numberBtn.forEach((items) => {
   items.addEventListener("click", function (e) {
     let keyPressed = e.target.innerHTML;
-    appendNumber(keyPressed);
     //console.log(keyPressed);
+    appendNumber(keyPressed);
   });
 });
 
 operatorBtn.forEach((items) => {
   items.addEventListener("click", function (e) {
     let keyPressed = e.target.innerHTML;
+    //console.log(keyPressed);
     chooseOperation(keyPressed);
   });
 });
@@ -37,15 +38,19 @@ function clear() {
 }
 
 function compute() {
+  console.log("equal clicked");
   if (operator) {
-    upperDisplay = upperDisplay.concat("", lowerDisplay);
-    secondNumber = lowerDisplay;
-    lowerDisplay = operate(operator, firstNumber, secondNumber);
+    upperDisplay.innerHTML = upperDisplay.innerHTML.concat(
+      "",
+      lowerDisplay.innerHTML
+    );
+    secondNumber = lowerDisplay.innerHTML;
+    lowerDisplay.innerHTML = operate(operator, firstNumber, secondNumber);
   }
 }
 
 function appendNumber(number) {
-  let inputDisplay = lowerDisplay;
+  let inputDisplay = lowerDisplay.textContent;
   if (number === "." && inputDisplay.includes(".")) return;
   if (inputDisplay.length >= 12) {
     maxDigitReached();
@@ -55,16 +60,16 @@ function appendNumber(number) {
       lowerDisplay = inputDisplay.concat("", number);
     }
   } else {
-    lowerDisplay = inputDisplay.concat("", number);
+    lowerDisplay.textContent = inputDisplay.concat("", number);
   }
 }
 
 function chooseOperation(value) {
-  if (lowerDisplay) {
+  if (lowerDisplay.textContent) {
     operator = value;
-    firstNumber = lowerDisplay;
-    upperDisplay = lowerDisplay.concat("", operator);
-    lowerDisplay = "";
+    firstNumber = lowerDisplay.textContent;
+    upperDisplay.textContent = lowerDisplay.textContent.concat("", operator);
+    lowerDisplay.textContent = "";
   }
 }
 
