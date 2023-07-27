@@ -1,6 +1,7 @@
 let firstNumber;
 let secondNumber;
 let operator;
+let round = false;
 
 const numberBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
@@ -13,7 +14,7 @@ let upperDisplay = document.querySelector(".upper-display");
 
 equalBtn.addEventListener("click", compute);
 clearBtn.addEventListener("click", clear);
-//deleteBtn.addEventListener("click", deleteN());
+//deleteBtn.addEventListener("click", delBtn());
 
 numberBtn.forEach((items) => {
   items.addEventListener("click", function (e) {
@@ -33,20 +34,26 @@ operatorBtn.forEach((items) => {
 
 function clear() {
   //console.log("AC clicked");
-  firstNumber = "";
-  secondNumber = "";
+  firstNumber = undefined;
+  secondNumber = undefined;
   operator = undefined;
   upperDisplay.innerHTML = "";
   lowerDisplay.innerHTML = "";
+  round = false;
 }
 
 function compute() {
-  if (operator) {
+  if (operator && round) {
     upperDisplay.innerHTML = upperDisplay.innerHTML.concat(
       "",
       lowerDisplay.innerHTML
     );
     secondNumber = lowerDisplay.innerHTML;
+    lowerDisplay.innerHTML = operate(operator, firstNumber, secondNumber);
+    round = false;
+  } else if (operator) {
+    upperDisplay.innerHTML = `${lowerDisplay.innerHTML}${operator}${secondNumber}`;
+    firstNumber = lowerDisplay.innerHTML;
     lowerDisplay.innerHTML = operate(operator, firstNumber, secondNumber);
   }
 }
@@ -67,11 +74,21 @@ function appendNumber(number) {
 }
 
 function chooseOperation(value) {
-  if (lowerDisplay.textContent) {
-    operator = value;
-    firstNumber = lowerDisplay.textContent;
-    upperDisplay.textContent = lowerDisplay.textContent.concat("", operator);
-    lowerDisplay.textContent = "";
+  if (value == "%") {
+    let newNumber = parseFloat(lowerDisplay.textContent) / 100;
+    if (newNumber.toString().length <= 12) {
+      lowerDisplay.innerHTML = newNumber;
+    } else {
+      lowerDisplay.innerHTML = newNumber.toExponential(5);
+    }
+  } else {
+    if (lowerDisplay.textContent) {
+      round = true;
+      operator = value;
+      firstNumber = lowerDisplay.textContent;
+      upperDisplay.textContent = lowerDisplay.textContent.concat("", operator);
+      lowerDisplay.textContent = "";
+    }
   }
 }
 
@@ -101,3 +118,6 @@ function operate(operator, firstNumber, secondNumber) {
     return result.toExponential(5);
   }
 }
+
+function delBtn() {}
+function maxDigitReached() {}
