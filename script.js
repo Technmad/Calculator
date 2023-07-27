@@ -14,7 +14,7 @@ let upperDisplay = document.querySelector(".upper-display");
 
 equalBtn.addEventListener("click", compute);
 clearBtn.addEventListener("click", clear);
-//deleteBtn.addEventListener("click", delBtn());
+deleteBtn.addEventListener("click", delBtn);
 
 numberBtn.forEach((items) => {
   items.addEventListener("click", function (e) {
@@ -119,5 +119,13 @@ function operate(operator, firstNumber, secondNumber) {
   }
 }
 
-function delBtn() {}
-function maxDigitReached() {}
+function delBtn() {
+  lowerDisplay.innerHTML = lowerDisplay.innerHTML.toString().slice(0, -1);
+}
+
+function maxDigitReached() {
+  // let maxDigitWarning = document.createElement("p");
+  // maxDigitWarning.id = "max-digit-warning";
+  // maxDigitWarning.innerText = "MAX DIGITS ENTERED";
+  // upperDisplay.appendChild(maxDigitWarning);
+}
