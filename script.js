@@ -32,13 +32,15 @@ operatorBtn.forEach((items) => {
 });
 
 function clear() {
+  //console.log("AC clicked");
   firstNumber = "";
   secondNumber = "";
   operator = undefined;
+  upperDisplay.innerHTML = "";
+  lowerDisplay.innerHTML = "";
 }
 
 function compute() {
-  console.log("equal clicked");
   if (operator) {
     upperDisplay.innerHTML = upperDisplay.innerHTML.concat(
       "",
