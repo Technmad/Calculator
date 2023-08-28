@@ -1,4 +1,3 @@
 # Calculator
-Fully functional calculator
-
-check out :-  https://technmad.github.io/Calculator/ 
+Fully functional calculator  
+[Check out](https://technmad.github.io/Calculator/) 
