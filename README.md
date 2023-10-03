@@ -1,6 +1,6 @@
 <!-- PROJECT LOGO -->
 <div align="center">
-    <img src="./assets/images/calculator.png" alt="Logo" width="150">
+    <img src="./images/calculator.png" alt="Logo" width="150">
 </div>
 
 <h3 align="center">Calculator</h3>
@@ -9,11 +9,11 @@
     Let's perform arithmetic operations on numbers
     <br />
     <br />
-    <a href="https://0xabdulkhalid.github.io/calculator/" target="_blank">View Demo</a>
+    <a href="https://technmad.github.io/Calculator/" target="_blank">View Demo</a>
     ·
-    <a href="https://github.com/0xabdulkhalid/calculator/issues" target="_blank">Report Bug</a>
+    <a href="https://technmad.github.io/Calculator/issues" target="_blank">Report Bug</a>
     ·
-    <a href="https://github.com/0xabdulkhalid/calculator/issues" target="_blank">Request Feature</a>
+    <a href="https://technmad.github.io/Calculator/issues" target="_blank">Request Feature</a>
   </p>
 </div>
 
@@ -23,7 +23,7 @@
 ## Preview
 
 <div align="center">
- <img src="./assets/images/preview.png">
+ <img src="./images/sample.png">
 </div>
 
 ## Features
